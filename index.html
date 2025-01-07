@@ -20,8 +20,10 @@
             background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
+            padding: 15px 30px;
+            box-sizing: border-box;
         }
         .logo {
             height: 40px;
@@ -102,22 +104,357 @@
             text-align: center;
             font-size: 14px;
         }
+        .navigation-buttons {
+            display: none; /* Hidden by default */
+            margin: 10px 0;
+        }
+        
+        .nav-button {
+            background-color: #4b7db8;
+            padding: 8px 16px;
+            margin: 0 5px;
+        }
+        
+        .nav-button:hover {
+            background-color: #3d669a;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            background: white;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            z-index: 1000;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ff4444;
+            font-size: 40px;
+            cursor: pointer;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1003;
+        }
+
+        .close-modal:hover {
+            transform: scale(1.1);
+            background: #ff4444;
+            color: white;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .modal-actions {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 8px;
+            z-index: 1002;
+        }
+
+        .modal-actions button {
+            background-color: #4b7db8;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .modal-actions button:hover {
+            background-color: #3d669a;
+        }
+
+        .modal-nav {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            box-sizing: border-box;
+        }
+
+        .modal-nav button {
+            background-color: rgba(75, 125, 184, 0.8);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-nav button:hover {
+            background-color: rgba(75, 125, 184, 1);
+        }
+
+        .gallery-instructions {
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+            font-size: 28px;
+            color: #000000;
+        }
+
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1004;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4b7db8;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .bulk-actions {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .bulk-actions button {
+            padding: 12px 24px;
+            background-color: #4b7db8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .bulk-actions button:hover {
+            background-color: #3d669a;
+        }
+
+        .how-to-btn {
+            background-color: #c95d63;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .how-to-btn:hover {
+            background-color: #c95d63;
+        }
+
+        .how-to-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+        }
+
+        .how-to-content {
+            position: relative;
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .close-how-to {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #ff4444;
+            font-size: 40px;
+            cursor: pointer;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1003;
+        }
+
+        .close-how-to:hover {
+            transform: scale(1.1);
+            background: #ff4444;
+            color: white;
+        }
+
+        .how-to-content h2 {
+            margin-top: 0;
+            color: #4b7db8;
+        }
+
+        .how-to-content ul {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
     <header>
         <img src="https://i0.wp.com/patients.vip/wp-content/uploads/2022/12/Patients-3.png?w=724&ssl=1" alt="Patients VIP Logo" class="logo">
+        <button class="how-to-btn" onclick="openHowTo()">How To Use</button>
     </header>
+
+    <div id="howToModal" class="how-to-modal">
+        <div class="how-to-content">
+            <span class="close-how-to" onclick="closeHowTo()">&times;</span>
+            <h2>How to Use This Image Viewer</h2>
+            <ul>
+                <li>Click on <b>any image</b> in the gallery to view it in full size</li>
+                <li>Use the <b>left and right arrows</b> to navigate between images in the viewer</li><br>
+                <li>In the full-size view, you can:
+                    <ul>
+                        <li><b>Download</b> the current image</li>
+                        <li><b>Print</b> the current image</li>
+                        <li><b>Reload</b> the image if it doesn't load properly</li>
+                    </ul>
+                </li><br>
+                <li>Use the <b>"Download All"</b> button to download all images at once</li>
+                <li>Use the <b>"Print All"</b> button to print all images together</li>
+                <li>Press <b>ESC</b> key or click the <b>X</b> to close the full-size view</li>
+            </ul>
+        </div>
+    </div>
+
     <div class="content">
-        <div class="image-container">
-            <img id="imageDisplay" src="" alt="Converted Image">
-            <div id="loading" class="loading" style="display: none;"></div>
+        <p class="gallery-instructions">Click an Image to View</p>
+        <div class="bulk-actions">
+            <button onclick="downloadAll()">Download All</button>
+            <button onclick="printAll()">Print All</button>
         </div>
+        <div class="gallery" id="imageGallery">
+            <!-- Gallery items will be inserted here -->
+        </div>
+        
+        <div id="imageModal" class="modal">
+            <span class="close-modal" id="closeModalBtn">&times;</span>
+            <div class="modal-content">
+                <div class="modal-actions">
+                    <button onclick="downloadImage()">Download</button>
+                    <button onclick="printImage()">Print</button>
+                    <button onclick="reloadImage()">Reload</button>
+                </div>
+                <div class="modal-nav">
+                    <button onclick="navigateModal('prev')" id="prevButton">←</button>
+                    <button onclick="navigateModal('next')" id="nextButton">→</button>
+                </div>
+                <img id="modalImage" src="" alt="Full size image">
+                <div class="image-counter" id="imageCounter">Image 1/1</div>
+                <div class="loading-overlay" id="loadingOverlay">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </div>
+
         <div id="error" class="error" style="display: none;"></div>
-        <div>
-            <button onclick="reloadImage()">Reload Image</button>
-            <button onclick="downloadImage()">Download Image</button>
-        </div>
     </div>
     <footer>
         <p>&copy; 2024 Patients VIP. All rights reserved.</p>
@@ -125,64 +462,269 @@
 
     <script src="https://unpkg.com/heic2any/dist/heic2any.js"></script>
     <script>
+        let currentImageIndex = 0;
+        let imageUrls = [];
+        let loadedImages = new Set();
+
         document.addEventListener("DOMContentLoaded", function() {
             const params = new URLSearchParams(window.location.search);
-            const imageURL = params.get('url');
-
-            if (imageURL) {
-                loadImage(imageURL);
-            } else {
-                document.getElementById('error').textContent = 'Please provide an image URL in the query string.';
+            
+            // Get all URL parameters
+            const entries = params.entries();
+            for (const [key, value] of entries) {
+                if (key === 'url') {
+                    imageUrls.push(value);
+                }
             }
+
+            if (imageUrls.length > 0) {
+                createGallery();
+            } else {
+                document.getElementById('error').textContent = 'Please provide at least one image URL in the query string.';
+            }
+
+            document.getElementById('closeModalBtn').addEventListener('click', function() {
+                closeModal();
+            });
         });
 
-        function loadImage(url) {
-            const loadingIndicator = document.getElementById('loading');
-            const errorDisplay = document.getElementById('error');
-            const imageDisplay = document.getElementById('imageDisplay');
-
-            loadingIndicator.style.display = 'block';
-            errorDisplay.textContent = '';
-
-            fetch(url)
-                .then(response => response.blob())
-                .then(blob => {
-                    if (blob.type === 'image/heic' || blob.type === 'image/heif') {
-                        return heic2any({
-                            blob: blob,
-                            toType: "image/jpeg",
-                            quality: 0.8
-                        });
-                    }
-                    return blob;
-                })
-                .then(convertedBlob => {
-                    const objectURL = URL.createObjectURL(convertedBlob);
-                    imageDisplay.src = objectURL;
-                })
-                .catch(error => {
-                    console.error('Error fetching or converting image:', error);
-                    errorDisplay.textContent = 'Error fetching or converting image. Please check the URL and try again.';
-                })
-                .finally(() => {
-                    loadingIndicator.style.display = 'none';
+        function createGallery() {
+            const gallery = document.getElementById('imageGallery');
+            
+            imageUrls.forEach((url, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                
+                const img = document.createElement('img');
+                img.alt = `Image ${index + 1}`;
+                
+                // Show loading state
+                const loadingDiv = document.createElement('div');
+                loadingDiv.className = 'loading';
+                item.appendChild(loadingDiv);
+                
+                // Load and convert image
+                loadImage(url).then(objectUrl => {
+                    img.src = objectUrl;
+                    loadedImages.add(objectUrl);
+                    item.removeChild(loadingDiv);
+                    item.appendChild(img);
                 });
+                
+                item.onclick = () => openModal(index);
+                gallery.appendChild(item);
+            });
         }
 
-        function reloadImage() {
-            const params = new URLSearchParams(window.location.search);
-            const imageURL = params.get('url');
-            if (imageURL) {
-                loadImage(imageURL);
+        async function loadImage(url) {
+            try {
+                const response = await fetch(url);
+                const blob = await response.blob();
+                
+                if (blob.type === 'image/heic' || blob.type === 'image/heif') {
+                    const convertedBlob = await heic2any({
+                        blob: blob,
+                        toType: "image/jpeg",
+                        quality: 0.8
+                    });
+                    return URL.createObjectURL(convertedBlob);
+                }
+                return URL.createObjectURL(blob);
+            } catch (error) {
+                console.error('Error loading image:', error);
+                throw error;
+            }
+        }
+
+        function openModal(index) {
+            const modal = document.getElementById('imageModal');
+            currentImageIndex = index;
+            modal.style.display = 'block';
+            showLoading();
+            updateModalImage();
+            document.addEventListener('keydown', handleKeyPress);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.removeEventListener('keydown', handleKeyPress);
+        }
+
+        function handleKeyPress(e) {
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowLeft') navigateModal('prev');
+            if (e.key === 'ArrowRight') navigateModal('next');
+        }
+
+        async function navigateModal(direction) {
+            if (direction === 'prev' && currentImageIndex > 0) {
+                currentImageIndex--;
+            } else if (direction === 'next' && currentImageIndex < imageUrls.length - 1) {
+                currentImageIndex++;
+            } else {
+                return; // Don't proceed if we can't navigate
+            }
+            
+            showLoading();
+            await updateModalImage();
+        }
+
+        async function updateModalImage() {
+            const modalImg = document.getElementById('modalImage');
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            const counter = document.getElementById('imageCounter');
+            
+            // Update navigation buttons visibility
+            prevButton.style.visibility = currentImageIndex > 0 ? 'visible' : 'hidden';
+            nextButton.style.visibility = currentImageIndex < imageUrls.length - 1 ? 'visible' : 'hidden';
+            
+            // Update counter
+            counter.textContent = `Image ${currentImageIndex + 1}/${imageUrls.length}`;
+            
+            // Update modal image
+            if (loadedImages.has(modalImg.src)) {
+                URL.revokeObjectURL(modalImg.src);
+            }
+            
+            try {
+                const objectUrl = await loadImage(imageUrls[currentImageIndex]);
+                modalImg.src = objectUrl;
+                loadedImages.add(objectUrl);
+            } finally {
+                hideLoading();
             }
         }
 
         function downloadImage() {
-            const imageDisplay = document.getElementById('imageDisplay');
             const link = document.createElement('a');
-            link.href = imageDisplay.src;
-            link.download = 'downloaded_image.jpg';
+            link.href = document.getElementById('modalImage').src;
+            link.download = `image-${currentImageIndex + 1}.jpg`;
+            document.body.appendChild(link);
             link.click();
+            document.body.removeChild(link);
+        }
+
+        function printImage() {
+            const imageUrl = document.getElementById('modalImage').src;
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Print Image</title>
+                        <style>
+                            img { max-width: 100%; height: auto; }
+                            @media print {
+                                body { margin: 0; }
+                                img { max-width: 100%; }
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <img src="${imageUrl}" onload="window.print();window.close()">
+                    </body>
+                </html>
+            `);
+            printWindow.document.close();
+        }
+
+        function reloadImage() {
+            loadImage(imageUrls[currentImageIndex]).then(objectUrl => {
+                const modalImg = document.getElementById('modalImage');
+                if (loadedImages.has(modalImg.src)) {
+                    URL.revokeObjectURL(modalImg.src);
+                }
+                modalImg.src = objectUrl;
+                loadedImages.add(objectUrl);
+            });
+        }
+
+        function showLoading() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+
+        // Clean up object URLs when leaving the page
+        window.addEventListener('beforeunload', () => {
+            loadedImages.forEach(url => URL.revokeObjectURL(url));
+        });
+
+        function downloadAll() {
+            imageUrls.forEach((url, index) => {
+                // Create a temporary link element
+                const link = document.createElement('a');
+                
+                // If we have a loaded version of the image, use that, otherwise use original URL
+                const imageUrl = Array.from(loadedImages)[index] || url;
+                
+                // Set up the download
+                link.href = imageUrl;
+                link.download = `image-${index + 1}.jpg`;
+                link.target = '_blank';
+                
+                // Append to body, click, and remove
+                document.body.appendChild(link);
+                setTimeout(() => {
+                    link.click();
+                    document.body.removeChild(link);
+                }, index * 500); // Stagger downloads by 500ms to prevent browser issues
+            });
+        }
+
+        function printAll() {
+            const printWindow = window.open('', '_blank');
+            const imagesHTML = imageUrls.map((url, index) => 
+                '<div style="page-break-after: always; margin: 20px 0;">' +
+                '<img src="' + url + '" style="max-width: 100%; height: auto;">' +
+                '</div>'
+            ).join('');
+
+            printWindow.document.write(
+                '<html>' +
+                '<head>' +
+                '<title>Print All Images</title>' +
+                '<style>' +
+                'body { margin: 0; padding: 20px; }' +
+                'img { max-width: 100%; height: auto; }' +
+                '@media print {' +
+                'body { margin: 0; }' +
+                'div { page-break-after: always; }' +
+                'div:last-child { page-break-after: avoid; }' +
+                '}' +
+                '</style>' +
+                '</head>' +
+                '<body>' +
+                imagesHTML +
+                '<script>' +
+                'window.onload = function() {' +
+                'window.print();' +
+                'window.onfocus = function() { window.close(); }' +
+                '};' +
+                '<\/script>' +
+                '</body>' +
+                '</html>'
+            );
+            printWindow.document.close();
+        }
+
+        function openHowTo() {
+            document.getElementById('howToModal').style.display = 'block';
+        }
+
+        function closeHowTo() {
+            document.getElementById('howToModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('howToModal');
+            if (event.target == modal) {
+                closeHowTo();
+            }
         }
     </script>
 </body>
